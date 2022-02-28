@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        *, html{
+            padding: 0;
+            margin: 0;
+        }
+        .textBox {
+            display: flex;
+            font-size: 16px;
+        }
+        .text {
+            padding: 15px 20px;
+            flex: 1;
+        }
+        .text.bgGreen {
+            background: #7cfc00;
+        }
+        .textBox.on .text.bgGreen {
+            background: #000;
+            color: #7cfc00;
+        }
+        .text.bgPink {
+            background: #ff69b4;
+            color: #fff;
+        }
+        .textBox.on .text.bgPink {
+            background: #191970;
+            color: #ff69b4;
+        }
+        .inputWrapper {
+            margin-top: 15px;
+            padding: 15px 20px;
+            background: #eee;
+        }
+        .inputWrapper label {
+            margin-right: 8px;
+        }
+        @media only screen and (max-width: 756px) {
+            .textBox {
+                display: block;
+                font-size: 18px;
+            }
+        }
+    </style>
+    <div>
+        <div class="textBox">
+            <p class="text bgGreen">
+                Ultra-speed flux capacitor 3000. Lorem ipsum dolor sit amet,
+                consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                et dolore magna alicqua. Ut enim ad minim veniam, quis nostrud 
+                exercitation.
+            </p>
+            <p class="text bgPink">
+                £20,000 including free wafflebox
+            </p>
+        </div>
+        <div class="inputWrapper">
+            <input type="radio" id="light" name="colors" value="Light" onClick="changeBackground(value)">
+            <label for="light">Light</label>
+            <input type="radio" id="dark" name="colors" value="Dark" onClick="changeBackground(value)">
+            <label for="dark">Dark</label>
+        </div>
+    </div>
+    <script>
+         document.getElementById('light').checked = true;
+
+         const textBox = document.querySelector('.textBox');
+
+        function changeBackground(value){
+            if(value === "Light"){
+                textBox.classList.remove('on');
+            } else {
+                textBox.classList.add('on');
+            }
+        }
+    </script>
+</body>
+</html>
